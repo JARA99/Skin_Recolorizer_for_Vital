@@ -1,3 +1,7 @@
+import tkinter as tk
+from tkinter import ttk
+ 
+
 path = input('Skin source at: ')
 if path == '':
     path = './src/default.vitalskin'
@@ -19,11 +23,22 @@ while i != -1:
         #print(color)
         colors.add(str(color[1:7]))
 
+SkinColors = list(colors)
+SkinColors.sort()
+
 print()
-print(list(colors))
+print(SkinColors)
 print()
 print()
 print('Este tema contiene ' + str(len(colors)) + ' colores distintos')
 
-SkinColors = list(colors)
+################################################## GUI ###############################################################
 
+root = tk.Tk()
+
+label = tk.Label(root, text="what's my favorite video?", background='#'+str(SkinColors[1]))
+label.pack()
+click_here = tk.Button(root, text="click here to find out", padx = 10, pady = 5)
+click_here.pack()
+
+root.mainloop()
