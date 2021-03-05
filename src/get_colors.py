@@ -1,6 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
- 
+
 
 path = input('Skin source at: ')
 if path == '':
@@ -21,10 +20,11 @@ while i != -1:
     color = str(skin[i+2:j])
     if len(color) == 8:
         #print(color)
-        colors.add(str(color[1:7]))
+        colors.add(str(color[2:8]))
 
 SkinColors = list(colors)
 SkinColors.sort()
+SkCoLen = len(SkinColors)
 
 print()
 print(SkinColors)
@@ -35,10 +35,19 @@ print('Este tema contiene ' + str(len(colors)) + ' colores distintos')
 ################################################## GUI ###############################################################
 
 root = tk.Tk()
+root.title('Vital theme recolor')
+label = []
+entries = []
 
-label = tk.Label(root, text="what's my favorite video?", background='#'+str(SkinColors[1]))
-label.pack()
-click_here = tk.Button(root, text="click here to find out", padx = 10, pady = 5)
-click_here.pack()
+#scroll = tk.Scrollbar(root).pack(side = tk.RIGHT, fill = tk.Y)
+ 
+for r in range(10):
+    for c in range(10):
+        i = c+(10*r)
+        if i < len(SkinColors):
+            tk.Label(root, text=str(SkinColors[i]), background='#'+str(SkinColors[i]), width = 9, height = 1).grid(row = 2*r, column = c)
+            #entry = tk.Entry(root, width = 9).grid(row = 2*r+1, column = c)
+            #entries[r][c] = entry
+
 
 root.mainloop()
