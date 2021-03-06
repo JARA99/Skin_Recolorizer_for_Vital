@@ -122,7 +122,8 @@ for r in range(10):
 
                 tk.Label(ColorTable, text='('+str(i)+') ', background='#'+str(NewSkinColors[i]), width = 12, height = 1, fg = 'white').grid(row = 2*r, column = 3*c+2)
                 tk.Label(ColorTable, text=str(NewSkinColors[i]), background='#'+str(NewSkinColors[i]), width = 12, height = 1, fg = 'white').grid(row = 2*r+1, column = 3*c+2)
-
+                
+                tk.Button(ColorTable, background = '#'+NewSkinColors[i], command=lambda a=i: print(a)).grid(row = 2*r+1, column = 3*c+2)
 
                 #tk.Label(ColorTable, background='#'+str(NewSkinColors[i]), width = 1, height = 1).grid(row = 2*r, column = 2*c)
                 #tk.Label(ColorTable, text='('+str(i)+') ', background = '#'+str(NewSkinColors[i]), fg = 'white',  width = 12, height = 1).grid(row = 2*r, column = 2*c+1)
