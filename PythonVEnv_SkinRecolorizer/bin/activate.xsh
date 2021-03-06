@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/jorgealejandro/Documents/Proyectos/VitalSkins/PythonVEnv_SkinRecolorizer"
+$VIRTUAL_ENV = r"/home/jorgealejandro/Documents/Proyectos/Vital/Theme_Recolorizer_for_Vital/PythonVEnv_SkinRecolorizer"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
