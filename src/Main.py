@@ -9,7 +9,7 @@ def GetInput():
     n = int(OriginalColor.get())
     col = NewColor.get()
     ChangeColor(n,col)
-    print(NewSkinColors)
+    #print(NewSkinColors)
     ColorTable.update()
 
     c = n%10
@@ -40,12 +40,12 @@ def SaveTheme():
     new_skin = str(skin)
     for j in range(len(NewSkinColors)): 
         new_skin = new_skin.replace(SkinColors[j]+'"', NewSkinColors[j]+'"')
-        print(SkinColors[j]+'"', 'y', NewSkinColors[j]+'"')
+        #print(SkinColors[j]+'"', 'y', NewSkinColors[j]+'"')
 
     #new_skin.replace('"Background"', 'ptaaaaa')
 
     SkinSink.write(new_skin)
-    print(new_skin)
+    #print(new_skin)
     return
 
 
@@ -79,12 +79,12 @@ SkCoLen = len(SkinColors)
 #NewSkinColors = list(colors)
 NewSkinColors = SkinColors.copy()
 
-print()
-print(SkinColors)
-print()
-print()
-print('Este tema contiene ' + str(len(colors)) + ' colores distintos')
-print('lista nueva: ', NewSkinColors)
+#print()
+#print(SkinColors)
+#print()
+#print()
+#print('Este tema contiene ' + str(len(colors)) + ' colores distintos')
+#print('lista nueva: ', NewSkinColors)
 
 
 ################################################## GUI ###############################################################
