@@ -8,7 +8,7 @@ This is a short python program, for adjusting colors from an existing .vitalskin
 Just `clone` the repository and run the [Main.py](src/Main.py) file via the virtual environment:
 
 ```bash
-git clone https://github.com/JARA99/Theme_Recolorizer_for_Vital.git
+git clone https://github.com/JARA99/Skin_Recolorizer_for_Vital.git
 cd ./Skin_Recolorizer_for_Vital
 source ./PythonVEnv_SkinRecolorizer/bin/activate
 python3 -u './src/Main.py'
