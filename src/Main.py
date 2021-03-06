@@ -32,7 +32,7 @@ def GetInput():
     ColorTable.pack()
 
 def SaveTheme():
-    Savepath = input('Save to: ')
+    Savepath = input('Save to (blank for default path): ')
     if Savepath == '':
         Savepath = './out.vitalskin'
     SkinSink = open(Savepath,'w')
@@ -52,7 +52,7 @@ def SaveTheme():
 ################################################# Logic ####################################################
 
 
-path = input('Skin source at: ')
+path = input('Skin source at (blank for default skin): ')
 if path == '':
     path = './src/default.vitalskin'
 SkinSource = open(path,'r')
