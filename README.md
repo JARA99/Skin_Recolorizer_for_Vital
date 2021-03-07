@@ -7,7 +7,7 @@ It is not as powerful as the native Vital skin editor, but is a bit easier, it g
 ##  Documentation
 
 ### Install and run
-Just `clone` the repository and run the [Main.py](src/Main.py) file via the virtual environment:
+Just `clone` the repository and run the [main.py](src/main.py) file via the virtual environment:
 
 ```bash
 git clone https://github.com/JARA99/Skin_Recolorizer_for_Vital.git
