@@ -54,10 +54,11 @@ Consider adding a folder called `/skins` to your vital directory. You can store 
 ## To-Do:
 
 - [ ] Improve the GUI
-- [ ] Add a load and save path selectors
+- [x] Add a load and save path selectors
 - [ ] Improve the documentation
 - [ ] English revision of the documentation (spanish is my native language)
 - [ ] Add a `reset color` button for resetting a color to the original
+- [ ] Add a info window, with the synth parts associated to each color.
 
 <br>
 
