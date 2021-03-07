@@ -2,7 +2,7 @@
 
 This is a short python program, for adjusting colors from an existing .vitalskin file.
 
-It is not as powerful as the native Vital skin editor, but is a bit easier, it group all the repeated colors so you only have to change them once 
+It is not as powerful as the native Vital skin editor, but is a bit easier, it group all the repeated colors so you only have to change them once. Is a good tool if you only want to tweak an existing skin. Or if you want to get started with a new one, this can save you some time.
 
 ##  Documentation
 
@@ -18,6 +18,37 @@ python3 -u './src/main.py'
 
 ### Usage
 
+Once the program is running, it will show you the [default.vitalskin](src/default.vitalskin) for tweak. But you can select any skin that you want for tweaking, just hit `load` and search your skin.
+
+For changing a color, just click over it, and it will pop a color selector for you. From there, you can change the colors as you wish. 
+
+When you are done, you can save the new theme with the `save` button. And that's all!
+
+### Configuration
+
+You can change some parameters if you want. On the [`main.py`](src/main.py) document, from the line 7 to 12. You can change the default paths and the number of columns you want, I personally prefer having just 4 columns so i can put vital bigger in my screen and at one side have the skin recolorizer.
+
+```python
+############################### Global Const ###############################
+
+DEFAULT_PATH = '..'
+DEFAULT_SKIN = './src/default.vitalskin'
+
+COLUMNS = 4
+```
+
+Consider adding a folder called `/skins` to your vital directory. You can store the skins there, and Vital will automatically add them to the skin list. You can add the path to that folder to the `DEFAULT_PATH` constant later.
+
+### Screenshots
+
+![](Graphics/ScrSht1.png)
+![](Graphics/ScrSht2.png)
+
+<br>
+
+---
+
+<br>
 
 
 ## To-Do:
@@ -28,7 +59,14 @@ python3 -u './src/main.py'
 - [ ] English revision of the documentation (spanish is my native language)
 - [ ] Add a `reset color` button for resetting a color to the original
 
-### Usage (OldMain)
+<br>
+
+---
+
+<br>
+
+
+## Usage (OldMain)
 
 Once you run the code above, it will be requested a path for loading a skin file. If you leve it in blank it will use the [default.vitalskin](src/default.vitalskin).
 
@@ -38,6 +76,6 @@ Hit the `to:`  button and it will apply the changes. You should see that the col
 
 Once you finish your re colorization you can hit `save` and enter the save path on the terminal.
 
-##  Screenshot
+###  Screenshot
 
 ![](Graphics/Screenshot.png)
