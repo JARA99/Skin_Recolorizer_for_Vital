@@ -6,7 +6,7 @@ import colorsys as colorsys
 
 ################################################ Global Const ##############################################
 
-DEFAULT_PATH = '.'
+DEFAULT_PATH = '..'
 DEFAULT_SKIN = './src/default.vitalskin'
 
 #MAX_COLORS = 100
