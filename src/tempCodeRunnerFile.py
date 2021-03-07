@@ -1,0 +1,1 @@
+tk.Button(ColorTable, background = '#'+NewSkinColors[i], command=lambda a=i: print(a)).grid(row = 2*r+1, column = 3*c+2)

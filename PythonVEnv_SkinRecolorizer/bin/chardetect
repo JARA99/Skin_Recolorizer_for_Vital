@@ -1,4 +1,4 @@
-#!/home/jorgealejandro/Documents/Proyectos/VitalSkins/PythonVEnv_SkinRecolorizer/bin/python
+#!/home/jorgealejandro/Documents/Proyectos/Vital/Theme_Recolorizer_for_Vital/PythonVEnv_SkinRecolorizer/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

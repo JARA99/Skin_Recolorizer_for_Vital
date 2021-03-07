@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/home/jorgealejandro/Documents/Proyectos/VitalSkins/PythonVEnv_SkinRecolorizer'
+set -gx VIRTUAL_ENV '/home/jorgealejandro/Documents/Proyectos/Vital/Theme_Recolorizer_for_Vital/PythonVEnv_SkinRecolorizer'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3
