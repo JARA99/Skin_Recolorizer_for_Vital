@@ -1,4 +1,5 @@
 import tkinter.filedialog
+import tkinter.colorchooser
 import tkinter as tk
 import math as math
 import colorsys as colorsys
@@ -21,16 +22,16 @@ global col_set
 global original_skin_list
 global new_skin_list
 global color_quant
-global button_created
-global button_list
+#global button_created
+# global button_list
 
 skin = ''
 col_set = set()
 original_skin_list = []
 new_skin_list = []
 color_quant = 0
-button_created = False
-button_list = []
+#button_created = False
+# button_list = []
 
 ############################################## Functions ###################################################
 
@@ -39,30 +40,51 @@ def CreateButtons():
     global original_skin_list
     global new_skin_list
     global color_quant
-    global button_created
-    global button_list
+    # global button_created
+    # global button_list
 
     ROWS = int((COLUMNS + color_quant - color_quant%COLUMNS) / COLUMNS)
-    print('cant ',color_quant)
-    print('filas', ROWS)
+    # print('cant ',color_quant)
+    # print('filas', ROWS)
     for r in range(ROWS):
         for c in range(COLUMNS):
             i = c+(10*r)
-            print(i)
+            # print(i)
             if i < color_quant:
-                tk.Button(F1_ColorTable, width = 4, height = 3, background = new_skin_list[i][1]).grid(row = r, column = c)
+                tk.Button(F1_ColorTable, width = 4, height = 3, background = new_skin_list[i][1], activebackground = original_skin_list[i][1], text = new_skin_list[i][1][1:], activeforeground = 'white', command = lambda a = i: ChangeColor(a)).grid(row = r, column = c)
     
     F1_ColorTable.pack()
+    # print(button_list)
     
-    
+def UpdateColorButton(n):
+    # global button_list
+    global new_skin_list
 
-# def CreateColorButton(n): 
+    # c = n%COLUMNS
+    # r = int((n-c)/COLUMNS)
 
-# def UpdateColorButton(n):
+    # button_list[n].destroy()
+    # button = tk.Button(F1_ColorTable, width = 3, height = 2, background = new_skin_list[n][1], command = lambda a = n: ChangeColor(a)).grid(row = r, column = c)
+    # button_list[n] = button
 
+    F1_ColorTable.destroy
+    CreateButtons()
 
-# def ChangeColor(n):
+def ChangeColor(n):
+        global skin 
+        global col_set
+        global original_skin_list
+        global new_skin_list
+        global color_quant
+        global button_created
+        # global button_list
 
+        # print(original_skin_list[n][1])
+        color = tkinter.colorchooser.askcolor(color=new_skin_list[n][1])
+        if color != (None,None):
+            print(color)
+            new_skin_list[n] = color
+            UpdateColorButton(n)
 
 def Step(r,g,b, repetitions=1):
     lum = math.sqrt( .241 * r + .691 * g + .068 * b )
@@ -72,8 +94,9 @@ def Step(r,g,b, repetitions=1):
     h2 = int(h * repetitions)
     lum2 = int(lum * repetitions)
     v2 = int(v * repetitions)
+    s2 = int(s * repetitions)
 
-    return (h2, lum, v2)
+    return (lum, h2, s2, v2)
 
 def ColorSort(lis):
     lis.sort(key = lambda rgb: Step(rgb[0],rgb[1],rgb[2],SORT_ITERATIONS)) 
@@ -87,13 +110,18 @@ def LoadFile():
     global original_skin_list
     global new_skin_list
     global color_quant
-    global button_created
+    # global button_created
 
     # SkinSource = open('./src/default.vitalskin','r')
     SkinSource = tkinter.filedialog.askopenfile(mode = 'r', title = 'Load', initialfile = DEFAULT_SKIN)
     if SkinSource != None:
+        skin = ''
         col_set = set()
+        original_skin_list = []
+        new_skin_list = []
+        color_quant = 0
         skin = SkinSource.read()
+        SkinSource.close()
         # print(skin)
 
         i = 0
@@ -110,7 +138,7 @@ def LoadFile():
         
         hex_temp_list = list(col_set)
         color_quant = len(hex_temp_list)
-        print(color_quant)
+        # print(color_quant)
         rgb_temp_list = []
 
         for i in range(color_quant):
@@ -126,16 +154,89 @@ def LoadFile():
             temp_item.append('#' + RgbToHex(rgb_temp_list[i]))
             original_skin_list.append(temp_item)
 
-        print(original_skin_list, '\n')
+        # print(original_skin_list, '\n')
         new_skin_list = original_skin_list.copy()
         
-        if button_created == False:
-            CreateButtons()
-            print('\n Creating buttons')
+        CreateButtons()
+        # print('\n Creating buttons')
     return
 
+def LoadFirst():
+    global skin 
+    global col_set
+    global original_skin_list
+    global new_skin_list
+    global color_quant
+    # global button_created
 
-# def SaveFile():
+    # SkinSource = open('./src/default.vitalskin','r')
+    SkinSource = open(DEFAULT_SKIN, 'r')
+    if SkinSource != None:
+        skin = ''
+        col_set = set()
+        original_skin_list = []
+        new_skin_list = []
+        color_quant = 0
+        skin = SkinSource.read()
+        SkinSource.close()
+        # print(skin)
+
+        i = 0
+
+        while i != -1:
+            i += 1
+            i = skin.find(':"', i)
+            j = skin.find('"', i+2)
+
+            clr = str(skin[i+2:j])
+            if len(clr) == 8:
+                col_set.add(str(clr[2:8]))
+        # print('\n Original ColorSet: ',col_set, '\n')
+        
+        hex_temp_list = list(col_set)
+        color_quant = len(hex_temp_list)
+        # print(color_quant)
+        rgb_temp_list = []
+
+        for i in range(color_quant):
+            rgb_temp_list.append(tuple(int(hex_temp_list[i][j:j+2], 16) for j in (0, 2, 4)))
+
+        # print(rgb_temp_list, '\n')
+        ColorSort(rgb_temp_list)
+        # print(rgb_temp_list, '\n')
+
+        for i in range(color_quant):
+            temp_item = [] 
+            temp_item.append(rgb_temp_list[i])
+            temp_item.append('#' + RgbToHex(rgb_temp_list[i]))
+            original_skin_list.append(temp_item)
+
+        # print(original_skin_list, '\n')
+        new_skin_list = original_skin_list.copy()
+        
+        CreateButtons()
+        # print('\n Creating buttons')
+    return
+
+def SaveFile():
+    global skin 
+    global col_set
+    global original_skin_list
+    global new_skin_list
+    global color_quant
+    # global button_created
+
+    # SkinSource = open('./src/default.vitalskin','r')
+        
+    SkinSink = tkinter.filedialog.asksaveasfile(mode = 'w', title = 'Save as', initialdir = DEFAULT_PATH)
+    if SkinSink != None:
+        #print(skin)
+        new_skin = str(skin)
+        for j in range(color_quant): 
+            new_skin = new_skin.replace(original_skin_list[j][1][1:]+'"', new_skin_list[j][1][1:]+'"')
+
+        SkinSink.write(new_skin)
+    return
 
 
 
@@ -147,11 +248,14 @@ root.title('Theme recolorizer for Vital')
 F1_ColorTable = tk.Frame()
 F2_Buttons = tk.Frame()
 
+# load_bt = tk.Button(F2_Buttons, text = 'Load', command = LoadFile).pack(side = tk.RIGHT)
+save_bt = tk.Button(F2_Buttons, text = 'Save', command = SaveFile).pack(side = tk.RIGHT)
+
 
 ############################################### Logic ######################################################
 
 LoadFile()
-
-F1_ColorTable.pack()
+# LoadFirst()
+F2_Buttons.pack()
 
 root.mainloop()
