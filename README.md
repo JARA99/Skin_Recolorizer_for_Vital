@@ -22,6 +22,8 @@ Once the program is running, it will show you the [default.vitalskin](src/defaul
 
 For changing a color, just click over it, and it will pop a color selector for you. From there, you can change the colors as you wish. 
 
+Also, when you put the mouse over a color, it will change to the original skin color, that way you can compare the changes (if you haven't changed the color, nothing will happen).
+
 When you are done, you can save the new theme with the `save` button. And that's all!
 
 ### Configuration
