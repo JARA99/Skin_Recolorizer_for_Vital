@@ -2,6 +2,8 @@
 
 This is a short python program, for adjusting colors from an existing .vitalskin file.
 
+It is not as powerful as the native Vital skin editor, but is a bit easier, it group all the repeated colors so you only have to change them once 
+
 ##  Documentation
 
 ### Install and run

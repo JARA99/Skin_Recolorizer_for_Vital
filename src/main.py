@@ -67,8 +67,19 @@ def UpdateColorButton(n):
     # button = tk.Button(F1_ColorTable, width = 3, height = 2, background = new_skin_list[n][1], command = lambda a = n: ChangeColor(a)).grid(row = r, column = c)
     # button_list[n] = button
 
-    F1_ColorTable.destroy
-    CreateButtons()
+    # DestroyChildern(F1_ColorTable)
+
+    # buttons_temp_list = []
+
+    # print(F1_ColorTable.winfo_children())
+
+    # for child in F1_ColorTable.winfo_children():
+        # print(child)
+        # buttons_temp_list.append[child]
+
+    F1_ColorTable.winfo_children()[n].config(background = new_skin_list[n][1])
+    # CreateButtons()
+
 
 def ChangeColor(n):
         global skin 
@@ -82,7 +93,7 @@ def ChangeColor(n):
         # print(original_skin_list[n][1])
         color = tkinter.colorchooser.askcolor(color=new_skin_list[n][1])
         if color != (None,None):
-            print(color)
+            # print(color)
             new_skin_list[n] = color
             UpdateColorButton(n)
 
@@ -115,6 +126,7 @@ def LoadFile():
     # SkinSource = open('./src/default.vitalskin','r')
     SkinSource = tkinter.filedialog.askopenfile(mode = 'r', title = 'Load', initialfile = DEFAULT_SKIN)
     if SkinSource != None:
+        DestroyChildern(F1_ColorTable)
         skin = ''
         col_set = set()
         original_skin_list = []
@@ -172,6 +184,7 @@ def LoadFirst():
     # SkinSource = open('./src/default.vitalskin','r')
     SkinSource = open(DEFAULT_SKIN, 'r')
     if SkinSource != None:
+        # F1_ColorTable.grid_forget()
         skin = ''
         col_set = set()
         original_skin_list = []
@@ -238,7 +251,10 @@ def SaveFile():
         SkinSink.write(new_skin)
     return
 
-
+def DestroyChildern(frame):
+    for child in frame.winfo_children():
+        # print(child)
+        child.destroy()
 
 
 ################################################# GUI ######################################################
@@ -248,14 +264,14 @@ root.title('Theme recolorizer for Vital')
 F1_ColorTable = tk.Frame()
 F2_Buttons = tk.Frame()
 
-# load_bt = tk.Button(F2_Buttons, text = 'Load', command = LoadFile).pack(side = tk.RIGHT)
+load_bt = tk.Button(F2_Buttons, text = 'Load', command = LoadFile).pack(side = tk.RIGHT)
 save_bt = tk.Button(F2_Buttons, text = 'Save', command = SaveFile).pack(side = tk.RIGHT)
 
 
 ############################################### Logic ######################################################
 
-LoadFile()
-# LoadFirst()
+# LoadFile()
+LoadFirst()
 F2_Buttons.pack()
 
 root.mainloop()
