@@ -8,13 +8,25 @@ This is a short python program, for adjusting colors from an existing .vitalskin
 Just `clone` the repository and run the [Main.py](src/Main.py) file via the virtual environment:
 
 ```bash
-git clone https://github.com/JARA99/Theme_Recolorizer_for_Vital.git
+git clone https://github.com/JARA99/Skin_Recolorizer_for_Vital.git
 cd ./Skin_Recolorizer_for_Vital
 source ./PythonVEnv_SkinRecolorizer/bin/activate
-python3 -u './src/Main.py'
+python3 -u './src/main.py'
 ```
 
 ### Usage
+
+
+
+## To-Do:
+
+- [ ] Improve the GUI
+- [ ] Add a load and save path selectors
+- [ ] Improve the documentation
+- [ ] English revision of the documentation (spanish is my native language)
+- [ ] Add a `reset color` button for resetting a color to the original
+
+### Usage (OldMain)
 
 Once you run the code above, it will be requested a path for loading a skin file. If you leve it in blank it will use the [default.vitalskin](src/default.vitalskin).
 
@@ -27,11 +39,3 @@ Once you finish your re colorization you can hit `save` and enter the save path 
 ##  Screenshot
 
 ![](Graphics/Screenshot.png)
-
-## To-Do:
-
-- [ ] Improve the GUI
-- [ ] Add a load and save path selectors
-- [ ] Improve the documentation
-- [ ] English revision of the documentation (spanish is my native language)
-- [ ] Add a `reset color` button for resetting a color to the original
