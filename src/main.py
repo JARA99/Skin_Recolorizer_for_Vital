@@ -9,7 +9,7 @@ import colorsys as colorsys
 DEFAULT_PATH = '..'
 DEFAULT_SKIN = './src/default.vitalskin'
 
-COLUMNS = 5
+COLUMNS = 10
 
 SORT_ITERATIONS = 1
 
