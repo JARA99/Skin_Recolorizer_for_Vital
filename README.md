@@ -1,12 +1,13 @@
 # Skin Recolorizer for Vital
 
-This is a short python program, for adjusting colors from an existing .vitalskin file.
-
-It is not as powerful as the native Vital skin editor, but is a bit easier, it group all the repeated colors so you only have to change them once. Is a good tool if you only want to tweak an existing skin. Or if you want to get started with a new one, this can save you some time.
+The main propose of this tool, is to change specific colors on a .vitalskin already existent. For example, you can change all the purple colors to green colors (that's what I do on the screenshots) from the default skin. To see the changes you need to save the new skin and load it on vital. This is not as close as powerful to the native Vital skin editor, but is a bit easier, it group all the repeated colors so you only have to change them once. Is a good tool if you only want to tweak an existing skin. Or if you want to get started with a new one, this can save you some time.
 
 ##  Documentation
 
 ### Install and run
+
+#### On Linux (or Mac)
+
 Just `clone` the repository and run the [main.py](src/main.py) file via the virtual environment:
 
 ```bash
@@ -15,6 +16,9 @@ cd ./Skin_Recolorizer_for_Vital
 source ./PythonVEnv_SkinRecolorizer/bin/activate
 python3 -u './src/main.py'
 ```
+#### On Windows
+
+Install python. Download or copy the [main.py](src/main.py) somewhere, run it by double clicking or form your python app if your installation come with one.
 
 ### Usage
 
