@@ -9,7 +9,7 @@ import colorsys as colorsys
 DEFAULT_PATH = '..'
 DEFAULT_SKIN = './src/default.vitalskin'
 
-COLUMNS = 10
+COLUMNS = 5
 
 SORT_ITERATIONS = 1
 
@@ -46,7 +46,7 @@ def CreateButtons():
     # print('filas', ROWS)
     for r in range(ROWS):
         for c in range(COLUMNS):
-            i = c+(10*r)
+            i = c+(COLUMNS*r)
             # print(i)
             if i < color_quant:
                 tk.Button(F1_ColorTable, width = 4, height = 3, background = new_skin_list[i][1], activebackground = original_skin_list[i][1], text = new_skin_list[i][1][1:], activeforeground = 'white', command = lambda a = i: ChangeColor(a)).grid(row = r, column = c)
